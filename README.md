@@ -1,41 +1,7 @@
 # SOAP_Webservice
 
-Cinema webservice.
+Cinema SOAP webservice
 
-The interface of the service is described by the following pseudo-code:
-
-namespace SeatReservation
-{
-  exception CinemaException
-  {
-    int ErrorCode;
-    string ErrorMessage;
-     }
-      struct Seat
-      {
-        string Row;
-        string Column;
-      }
-    enum SeatStatus
-    {
-      Free,
-      Locked,
-      Reserved,
-      Sold
-    }
-  interface ICinema
-  {
-    void Init(int rows, int columns) throws CinemaException;
-    Seat[] GetAllSeats()throws CinemaException;
-    SeatStatus GetSeatStatus(Seat seat) throws CinemaException;
-    string Lock(Seat seat, int count) throws CinemaException;
-    void Unlock(string lockId) throws CinemaException;
-    void Reserve(string lockId) throws CinemaException;
-    void Buy(string lockId) throws CinemaException;
-  }
-}
-The pseudo-code above is only for making things readable.
-2
 The operations of the service have the following responsibilities:
  Init:
   o initializes the room with the given number of rows and columns
